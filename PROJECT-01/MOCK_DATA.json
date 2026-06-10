@@ -1,13 +1,5 @@
 [
     {
-        "id": 1,
-        "first_name": "Harp",
-        "last_name": "Evert",
-        "email": "hevert0@tmall.com",
-        "gender": "Male",
-        "job_title": "Software Consultant"
-    },
-    {
         "id": 2,
         "first_name": "Jard",
         "last_name": "Veel",

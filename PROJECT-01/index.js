@@ -1,6 +1,6 @@
 const express = require('express');
 const fs=require('fs')
-const Users = require('./MOCK_DATA.json');
+let Users = require('./MOCK_DATA.json');
 
 const app = express();
 const PORT = 8000;
@@ -36,12 +36,20 @@ app
 
     .patch((req, res) => {
         // TODO: Edit the user with id
+        const id =Number(req.params.id)
+        const user = Users.find((user)=> user.id === id)
         return res.json({ status: "pending" });
     })
 
     .delete((req, res) => {
         // TODO: Delete the user with id
-        return res.json({ status: "pending" });
+        const id=Number(req.params.id)
+        Users=Users.filter((user)=> user.id !==id)
+
+        fs.writeFile('./MOCK_DATA.json',JSON.stringify(Users),(err,data)=>{
+            return res.json({message:"user deleted successfully"})
+        })
+       
     });
 
 app.post('/api/users', (req, res) => {
