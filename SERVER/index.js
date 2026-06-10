@@ -8,7 +8,7 @@ const myServer = http.createServer((req, res) => {
         return res.end()
     }
 
-    const log = `${Date.now()}:${req.url} New Req Received\n`
+    const log = `${Date.now()}:${req.method} ${req.url} New Req Received\n`
 
     const myUrl = url.parse(req.url,true)
     console.log(myUrl)
